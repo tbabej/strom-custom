@@ -13,6 +13,11 @@
   <a class="list-group-item {% if request.path == '/sk/omatiku/' %}active{% endif %}" href="/sk/omatiku/"><i class="fa fa-question" style="margin-right: 16px;"></i>Čo je Matik</a>
 {% endif %}
 
+{% if domain == "zdruzenie.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/zdruzenie/onas/' %}active{% endif %}" href="/sk/zdruzenie/onas/"><i class="fa fa-envelope-o" style="margin-right: 13px;"></i>O nás</a>
+{% endif %}
+
+
 {% if domain != "zdruzenie.strom.sk" %}
   <a class="list-group-item {% if request.path == '/sk/pravidla/' %}active{% endif %}" href="/sk/pravidla/"><i class="fa fa-exclamation-triangle" style="margin-right: 11px;"></i>Pravidlá</a>
 {% endif %}
@@ -40,6 +45,12 @@
 {% if domain == "seminar.strom.sk" %}
   <a class="list-group-item {% if request.path == '/sk/matboj/' %}active{% endif %}" href="/sk/matboj/"><i class="fa fa-trophy" style="margin-right: 13px;"></i>Matboj</a>
 {% endif %}
+
+{% if domain == "zdruzenie.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/zdruzenie/stanovy/' %}active{% endif %}" href="/sk/zdruzenie/stanovy/"><i class="fa fa-envelope-o" style="margin-right: 13px;"></i>Stanovy</a>
+  <a class="list-group-item {% if request.path == '/sk/zdruzenie/kontakty/' %}active{% endif %}" href="/sk/zdruzenie/kontakty/"><i class="fa fa-envelope-o" style="margin-right: 13px;"></i>Kontakty</a>
+{% endif %}
+
 
 {% if domain != "zdruzenie.strom.sk" %}
   <div class="list-group-item list-group-item-info">
