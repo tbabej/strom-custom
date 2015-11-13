@@ -1,0 +1,41 @@
+{% extends "base:base/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load roots_tags %}
+
+{% block logo %}
+
+{% current_site_domain as domain %}
+
+{% if domain == "matik.strom.sk" %}
+  <img src="{% static "logo_matik.jpg" %}" class="center-block img-responsive" style="margin-top: 20px; margin-bottom: 40px">
+{% elif domain == "malynar.strom.sk" %}
+  <img src="{% static "logo_malynar.jpg" %}" class="center-block img-responsive" style="margin-top: 20px; margin-bottom: 40px">
+{% else %}
+  <img src="{% static "logo_strom.png" %}" class="center-block img-responsive" style="margin-bottom: 20px">
+{% endif %}
+
+{% endblock logo %}
+
+{% block right_panel_extra %}
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h1 class="panel-title"><b>Info</b></h1>
+    </div><!-- panel-heading -->
+
+    <div class="panel-body">
+    <small>
+      <div class="text-center">
+      {% trans "The website is in develpment and you might encounter bugs." %}
+      {% trans "Please send your bug reports and requests for enhancements to the address " %}
+      <img src="/media/custom/webmaster.png" class="img-responsive center-block">
+      </div>
+    </small>
+    </div><!-- panel-body -->
+  </div><!-- panel -->
+
+  <img src="https://seminar.strom.sk/media/allianz-nadacia-logo.jpg" class="img-responsive">
+</div><!-- col -->
+
+{% endblock %}

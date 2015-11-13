@@ -1,0 +1,70 @@
+{% load i18n %}
+{% load roots_tags %}
+
+{% current_site_domain as domain %}
+
+<div class="list-group">
+
+  <div class="list-group-item list-group-item-info">
+  <h4 class="list-group-item-heading">{% trans "Look at" %}</h4>
+  </div>
+
+{% if domain == "matik.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/omatiku/' %}active{% endif %}" href="/sk/omatiku/"><i class="fa fa-question" style="margin-right: 16px;"></i>Čo je Matik</a>
+{% endif %}
+
+{% if domain != "zdruzenie.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/pravidla/' %}active{% endif %}" href="/sk/pravidla/"><i class="fa fa-exclamation-triangle" style="margin-right: 11px;"></i>Pravidlá</a>
+{% endif %}
+
+  <a class="list-group-item {% url_active request 'posts_post_list' %}" href="{% url 'posts_post_list' %}"><i class="fa fa-envelope-o" style="margin-right: 7px;"></i>
+{% trans "Posts" %}</a>
+
+{% if domain != "zdruzenie.strom.sk" %}
+    <a class="list-group-item {% url_active request 'competitions_season_detail_latest' %}" href="{% url 'competitions_season_detail_latest' %}"><i class="fa fa-cube" style="margin-right: 7px;"></i>
+  {% trans "Problems" %}</a>
+    <a class="list-group-item {% url_active request 'competitions_season_results_latest' %}" href="{% url 'competitions_season_results_latest' %}"><i class="fa fa-bar-chart" style="margin-right: 5px;"></i>
+  {% trans "Results" %}</a>
+    <a class="list-group-item {% url_active request 'competitions_competition_discussion' %}" href="{% url 'competitions_competition_discussion' %}"><i class="fa fa-comment-o" style="margin-right: 7px;"></i>
+  {% trans "Discussion" %}</a>
+{% endif %}
+
+  <a class="list-group-item {% url_active request 'leaflets_leaflet_list' %}" href="{% url 'leaflets_leaflet_list' %}"><i class="fa fa-newspaper-o" style="margin-right: 5px;"></i>
+{% trans "Leaflets" %}</a>
+  <a class="list-group-item {% url_active request 'photologue:pl-gallery-archive' %}" href="{% url 'photos_archive' %}"><i class="fa fa-camera-retro" style="margin-right: 7px;"></i>
+{% trans "Photos" %}</a>
+
+{% if domain == "matik.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/lomihlav/' %}active{% endif %}" href="/sk/lomihlav/"><i class="fa fa-trophy" style="margin-right: 13px;"></i>Lomihlav</a>
+{% endif %}
+{% if domain == "seminar.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/matboj/' %}active{% endif %}" href="/sk/matboj/"><i class="fa fa-trophy" style="margin-right: 13px;"></i>Matboj</a>
+{% endif %}
+
+{% if domain != "zdruzenie.strom.sk" %}
+  <div class="list-group-item list-group-item-info">
+  <h4 class="list-group-item-heading">{% trans "Account stuff" %}</h4>
+  </div>
+
+  {% if user.is_authenticated %}
+  <a class="list-group-item {% url_active request 'profiles_userprofile_detail' username=user.username %}" href="{% url 'profiles_userprofile_detail' username=user.username %}">{% trans "Display your profile" %}</a>
+  <a class="list-group-item {% url_active request 'profiles_userprofile_update' %}" href="{% url 'profiles_userprofile_update' %}">{% trans "Update your profile" %}</a>
+  <a class="list-group-item {% url_active request 'avatar_change' %}" href="{% url 'avatar_change' %}">{% trans "Change your avatar" %}</a>
+  <a class="list-group-item {% url_active request 'account_email' %}" href="{% url 'account_email' %}">{% trans "Change E-mail" %}</a>
+  <a class="list-group-item {% url_active request 'socialaccount_connections' %}" href="{% url 'socialaccount_connections' %}">{% trans "Connect external account" %}</a>
+  <a class="list-group-item {% url_active request 'account_logout' %}" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+  {% else %}
+  <a class="list-group-item {% url_active request 'account_login' %}" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+  <a class="list-group-item {% url_active request 'account_signup' %}" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+  {% endif %}
+
+  {% if user.is_staff %}
+  <div class="list-group-item list-group-item-info">
+  <h4 class="list-group-item-heading">{% trans "Organizer stuff" %}</h4>
+  </div>
+
+  <a class="list-group-item {% url_active request 'wiki:root' %}" href="{% url 'wiki:root' %}">{% trans "Wiki" %}</a>
+  {% endif %}
+{% else %}
+{% endif %}
+</div>
