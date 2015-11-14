@@ -3,13 +3,6 @@
 
 {% block notes %}
 
-{% define instructions %}
-<ul>
-<li> <b>?</b> - úloha je evidovaná ako odovzdaná, no nebola ešte opravená </li>
-<li> <b>Ročník</b> - Z1 až Z9 zodpovedá 1. až 9. ročníku základných škol, S1 až S4 1. až 4. ročníku stredných škôl (príslušné ročníky osemročných gymnázií analogicky) </li>
-</ul>
-{% enddefine %}
-
 {{ block.super }}
 
 <div class="panel-group" id="accordion{{series.pk}}" role="tablist" aria-multiselectable="true">
@@ -23,7 +16,7 @@
     </div>
     <div id="collapseSeries{{series.pk}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeries{{series.pk}}">
       <div class="panel-body">
-      {{instructions}}
+      {% include "competitions/instructions.html" %}
       </div>
     </div>
   </div>
@@ -46,7 +39,7 @@
     </div>
     <div id="collapseSemester" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSemester">
       <div class="panel-body">
-      {{instructions}}
+      {% include "competitions/instructions.html" %}
       </div>
     </div>
   </div>
