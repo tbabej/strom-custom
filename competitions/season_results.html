@@ -1,24 +1,29 @@
 {% extends "competitions:competitions/season_results.html" %}
+{% load roots_tags %}
 
 {% block notes %}
 
+{% define instructions %}
+<ul>
+<li> <b>?</b> - úloha je evidovaná ako odovzdaná, no nebola ešte opravená </li>
+<li> <b>Ročník</b> - Z1 až Z9 zodpovedá 1. až 9. ročníku základných škol, S1 až S4 1. až 4. ročníku stredných škôl (príslušné ročníky osemročných gymnázií analogicky) </li>
+</ul>
+{% enddefine %}
+
 {{ block.super }}
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="accordion{{series.pk}}" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingSeries{{series.pk}}">
+    <div class="panel-heading" role="tab" id="headingSeries{{series.pk}}">
       <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNotes{{series.pk}}" aria-expanded="true" aria-controls="#collapseNotes{{series.pk}}">
-            <strong> Vysvetlivky </strong>
+        <a role="button" data-toggle="collapse" data-parent="#accordion{{series.pk}}" href="#collapseSeries{{series.pk}}" aria-expanded="false" aria-controls="collapseSeries{{series.pk}}">
+          <strong> Vysvetlivky </strong>
         </a>
       </h4>
     </div>
-    <div id="#collapseNotes{{series.pk}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeries{{series.pk}}">
+    <div id="collapseSeries{{series.pk}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeries{{series.pk}}">
       <div class="panel-body">
-        <ul>
-        <li> <b>?</b> - úloha je evidovaná ako odovzdaná, no nebola ešte opravená </li>
-        <li> <b>Ročník</b> - Z1 až Z9 zodpovedá 1. až 9. ročníku základných škol, S1 až S4 1. až 4. ročníku stredných škôl (príslušné ročníky osemročných gymnázií analogicky) </li>
-        </ul>
+      {{instructions}}
       </div>
     </div>
   </div>
@@ -30,31 +35,21 @@
 
 {{ block.super }}
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="accordionSemester" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingSemester">
       <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSemester" aria-expanded="true" aria-controls="collapseSemester">
+        <a role="button" data-toggle="collapse" data-parent="#accordionSemester" href="#collapseSemester" aria-expanded="false" aria-controls="collapseSemester">
             <strong> Vysvetlivky </strong>
         </a>
       </h4>
     </div>
     <div id="collapseSemester" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSemester">
       <div class="panel-body">
-        <ul>
-        <li> <b>?</b> - úloha je evidovaná ako odovzdaná, no nebola ešte opravená </li>
-        <li> <b>Ročník</b> - Z1 až Z9 zodpovedá 1. až 9. ročníku základných škol, S1 až S4 1. až 4. ročníku stredných škôl (príslušné ročníky osemročných gymnázií analogicky) </li>
-        </ul>
+      {{instructions}}
       </div>
     </div>
   </div>
 </div>
 
 {% endblock %}
-
-<div class="alert alert-dismissable fade in alert-warning" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong> Vysvetlivky </strong>
-</div>
-
-
