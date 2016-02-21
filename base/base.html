@@ -3,6 +3,19 @@
 {% load staticfiles %}
 {% load roots_tags %}
 
+{# Remove the login link from navbar for zdruzenie #}
+{% block navbar-right %}
+{% if domain == "zdruzenie.strom.sk" %}
+  {% for supported_lang in LANGUAGES %}
+    {% with supported_lang|first as lang_id %}
+      {% include "base/language_set_form.html" with lang=lang_id %}
+    {% endwith %}
+  {% endfor %}
+{% else %}
+  {{ block.super }}
+{% endif %}
+{% endblock %}
+
 {% block logo %}
 
 {% current_site_domain as domain %}
