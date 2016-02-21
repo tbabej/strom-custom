@@ -5,6 +5,9 @@
 
 {# Remove the login link from navbar for zdruzenie #}
 {% block navbar-right %}
+
+{% current_site_domain as domain %}
+
 {% if domain == "zdruzenie.strom.sk" %}
   {% for supported_lang in LANGUAGES %}
     {% with supported_lang|first as lang_id %}
