@@ -40,6 +40,9 @@
 {% trans "Photos" %}</a>
 
 {% if domain == "matik.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/mamut/' %}active{% endif %}" href="/sk/mamut/"><i class="fa fa-trophy" style="margin-right: 13px;"></i>Mamut</a>
+{% endif %}
+{% if domain == "matik.strom.sk" %}
   <a class="list-group-item {% if request.path == '/sk/lomihlav/' %}active{% endif %}" href="/sk/lomihlav/"><i class="fa fa-trophy" style="margin-right: 13px;"></i>Lomihlav</a>
 {% endif %}
 {% if domain == "seminar.strom.sk" %}
@@ -47,6 +50,7 @@
 {% endif %}
 
 {% if domain == "zdruzenie.strom.sk" %}
+  <a class="list-group-item {% if request.path == '/sk/zdruzenie/2percenta/' %}active{% endif %}" href="/sk/zdruzenie/2percenta/"><i class="fa fa-money" style="margin-right: 13px;"></i>2 % pre STROM</a>
   <a class="list-group-item {% if request.path == '/sk/zdruzenie/stanovy/' %}active{% endif %}" href="/sk/zdruzenie/stanovy/"><i class="fa fa-book" style="margin-right: 13px;"></i>Stanovy</a>
 {% endif %}
 
