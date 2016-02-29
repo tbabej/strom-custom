@@ -39,7 +39,7 @@
   <a class="list-group-item {% url_active request 'photologue:pl-gallery-archive' %}" href="{% url 'photos_archive' %}"><i class="fa fa-camera-retro" style="margin-right: 7px;"></i>
 {% trans "Photos" %}</a>
 
-{% if domain == "matik.strom.sk" %}
+{% if domain == "malynar.strom.sk" %}
   <a class="list-group-item {% if request.path == '/sk/mamut/' %}active{% endif %}" href="/sk/mamut/"><i class="fa fa-trophy" style="margin-right: 13px;"></i>Mamut</a>
 {% endif %}
 {% if domain == "matik.strom.sk" %}
