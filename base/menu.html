@@ -10,11 +10,13 @@
   </div>
 
 {% if domain == "matik.strom.sk" %}
-  <a class="list-group-item {% if request.path == '/sk/omatiku/' %}active{% endif %}" href="/sk/omatiku/"><i class="fa fa-bookmark-o" style="margin-right: 16px;"></i>Čo je Matik</a>
+   <a class="list-group-item {% if request.path == '/sk/omatiku/' %}active{% endif %}" href="/sk/omatiku/"><i class="fa fa-bookmark-o" style="margin-right: 16px;"></i>Čo je Matik</a>
 {% endif %}
 
 {% if domain == "zdruzenie.strom.sk" %}
   <a class="list-group-item {% if request.path == '/sk/zdruzenie/onas/' %}active{% endif %}" href="/sk/zdruzenie/onas/"><i class="fa fa-bookmark-o" style="margin-right: 13px;"></i>O nás</a>
+  <a class="list-group-item {% if request.path == '/sk/org_poriadok_seminare/' %}active{% endif %}" href="/sk/org_poriadok_seminare/"><i class="fa fa-book" style="margin-right: 13px;"></i>Organizačný poriadok korešpondenčných seminárov</a>
+  <a class="list-group-item {% if request.path == '/sk/org_poriadok_sutaze/' %}active{% endif %}" href="/sk/org_poriadok_sutaze/"><i class="fa fa-book" style="margin-right: 13px;"></i>Organizačný poriadok matematických súťaží</a>
 {% endif %}
 
 
